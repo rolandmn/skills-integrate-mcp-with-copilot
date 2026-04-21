@@ -5,6 +5,7 @@
   font-family: Arial, sans-serif;
 }
 
+
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
@@ -12,7 +13,61 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f5f5f5;
+  background: linear-gradient(135deg, #eaffd0 0%, #ffffff 100%);
+  min-height: 100vh;
+  position: relative;
+}
+
+#git-branches-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.mascot-container {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  z-index: 2;
+  position: relative;
+}
+
+.mascot-img {
+  height: 90px;
+  width: auto;
+  filter: drop-shadow(0 2px 8px #b2ff59);
+}
+
+header {
+  text-align: center;
+  padding: 20px 0;
+  margin-bottom: 30px;
+  background-color: #b2ff59;
+  color: #222;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px #eaffd0;
+  z-index: 2;
+  position: relative;
+}
+
+section {
+  background-color: #fff;
+  /* lime accent border */
+  border: 2px solid #b2ff59;
+}
+
+button {
+  background-color: #b2ff59;
+  color: #222;
+}
+
+button:hover {
+  background-color: #d4ffb2;
 }
 
 header {
