@@ -1,4 +1,40 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Git-branch animatie op de achtergrond
+  function drawGitBranches() {
+    const canvas = document.getElementById("git-branches-bg");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    // Volledige breedte/hoogte
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Parameters voor lijnen
+    const branchColors = ["#b2ff59", "#76ff03", "#c6ff00", "#aeea00", "#d4ffb2"];
+    const numBranches = 6;
+    for (let i = 0; i < numBranches; i++) {
+      ctx.save();
+      ctx.strokeStyle = branchColors[i % branchColors.length];
+      ctx.globalAlpha = 0.18;
+      ctx.lineWidth = 4 + Math.random() * 2;
+      ctx.beginPath();
+      let x = 80 + i * (canvas.width - 160) / (numBranches - 1);
+      let y = 0;
+      ctx.moveTo(x, y);
+      let steps = 8 + Math.floor(Math.random() * 4);
+      for (let s = 1; s <= steps; s++) {
+        x += (Math.random() - 0.5) * 60;
+        y += canvas.height / steps;
+        ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+      ctx.restore();
+    }
+  }
+
+  drawGitBranches();
+  window.addEventListener("resize", drawGitBranches);
+
   const activitiesList = document.getElementById("activities-list");
   const activitySelect = document.getElementById("activity");
   const signupForm = document.getElementById("signup-form");
